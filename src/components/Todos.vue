@@ -14,7 +14,7 @@
             <ul class="todo-list">
                 <li 
                     class="todo" 
-                    v-for="(todo, index) in todos" 
+                    v-for="(todo, index) in filteredTodos" 
                     :key="index" 
                     :class="{completed: todo.completed}"
                 >
@@ -27,6 +27,11 @@
         </div>
         <footer class="footer">
             <span class="todo-count"><strong>{{ remaining }}</strong> Tâches à faire</span>
+            <ul class="filters">
+                <li><a href="#" :class="{selected: filter === 'all'}" @click.prevent="filter = 'all'">Toutes</a></li>
+                <li><a href="#" :class="{selected: filter === 'todo'}" @click.prevent="filter = 'todo'">À faire</a></li>
+                <li><a href="#" :class="{selected: filter === 'done'}" @click.prevent="filter = 'done'">Faites</a></li>
+            </ul>
         </footer>
     </section>
 </template>
@@ -40,7 +45,8 @@
                    name: 'tâche de test',
                    completed: 'false'
                }],
-               newTodo: ''
+               newTodo: '',
+               filter: 'all'
            }
        },
        methods: {
@@ -55,6 +61,14 @@
        computed: {
            remaining () {
                return this.todos.filter(todo => !todo.completed).length
+           },
+           filteredTodos () {
+               if (this.filter === 'todo') {
+                   return this.todos.filter(todo => !todo.completed)
+               } else if (this.filter === 'done') {
+                   return this.todos.filter(todo => todo.completed)
+               }
+               return this.todos
            }
        }
     }
