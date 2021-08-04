@@ -2,13 +2,19 @@
     <section class="todoapp">
         <header class="header">
             <h1>Todos</h1>
-            <input type="text" class="new-todo" placeholder="Ajouter une tâche">
+            <input 
+                type="text" 
+                class="new-todo" 
+                placeholder="Ajouter une tâche" 
+                v-model="newTodo"
+                @keyup.enter="addTodo"
+            >
         </header>
         <div class="main">
             <ul class="todo-list">
-                <li class="todo">
+                <li class="todo" v-for="(todo, index) in todos" :key="index">
                     <div class="view">
-                        <label for="">Nom de notre tâche</label>
+                        <label>{{ todo.name }}</label>
                     </div>
                 </li>
             </ul>
@@ -19,7 +25,24 @@
 
 <script>
     export default {
-       
+       data(){
+           return {
+               todos: [{
+                   name: 'tâche de test',
+                   completed: 'false'
+               }],
+               newTodo: ''
+           }
+       },
+       methods: {
+           addTodo () {
+               this.todos.push({
+                   completed: false,
+                   name: this.newTodo
+               })
+               this.newTodo = ''
+           }
+       }
     }
 </script>
 
