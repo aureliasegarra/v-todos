@@ -11,6 +11,7 @@
             >
         </header>
         <div class="main">
+        <input type="checkbox" class="toggle-all" v-model="allDone">
             <ul class="todo-list">
                 <li 
                     class="todo" 
@@ -59,6 +60,16 @@
            }
        },
        computed: {
+           allDone: {
+               get () {
+                   return this.remaining === 0
+               },
+               set (value) {
+                   this.todos.forEach(todo => {
+                        todo.completed = value    
+                   })
+               }
+            },
            remaining () {
                return this.todos.filter(todo => !todo.completed).length
            },
