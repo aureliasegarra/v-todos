@@ -319,7 +319,7 @@ body {
 html .clear-completed:active {
 	float: right;
 	position: relative;
-	line-height: 20px;
+	line-height: 40px;
 	text-decoration: none;
 	cursor: pointer;
 }
