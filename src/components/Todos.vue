@@ -17,13 +17,14 @@
                     class="todo" 
                     v-for="(todo, index) in filteredTodos" 
                     :key="index" 
-                    :class="{completed: todo.completed}"
+                    :class="{completed: todo.completed, editing: todo === editing}"
                 >
                     <div class="view">
                         <input class="toggle" type="checkbox" v-model="todo.completed">
-                        <label>{{ todo.name }}</label>
+                        <label @dblclick="editTodo(todo)">{{ todo.name }}</label>
                         <button class="destroy" @click.prevent="deleteTodo(todo)"></button>
                     </div>
+                    <input type="text" class="edit" v-model="todo.name" @keyup.enter="doneEdit">
                 </li>
             </ul>
             <button class="clear-completed" @click.prevent="deleteCompleted" v-show="completed">Supprimer les tâches faites</button>
@@ -49,7 +50,8 @@
                    completed: 'false'
                }],
                newTodo: '',
-               filter: 'all'
+               filter: 'all',
+               editing: null
            }
        },
        methods: {
@@ -65,6 +67,12 @@
            },
            deleteCompleted () {
                this.todos = this.todos.filter(todo => !todo.completed)
+           },
+           editTodo (todo) {
+               this.editing = todo
+           }, 
+           doneEdit () {
+               this.editing = null
            }
        },
        computed: {
