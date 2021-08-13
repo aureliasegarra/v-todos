@@ -7,15 +7,13 @@
 
 ## Language/tools 🛠
 - HTML5 / CSS3
-- Javascript / REACT NATIVE/ Hooks
-- EXPO
+- Javascript / Vue.js 
+
   
 
 ## Goals 🏔
-- Discover React Native
-- Discover Expo
-- Discover Native components
-- UX / UI
+- Discover Vue.js / new Javascript Framework
+
 
 ## How to use ⚙️
 
