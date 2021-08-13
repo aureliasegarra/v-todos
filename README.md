@@ -1,6 +1,27 @@
-# v-todo
+#  :hourglass: Todo App
 
-## Project setup
+## 👉 Create a Todo application with Vue.js 
+
+## Illustration 📸
+
+
+## Language/tools 🛠
+- HTML5 / CSS3
+- Javascript / REACT NATIVE/ Hooks
+- EXPO
+  
+
+## Goals 🏔
+- Discover React Native
+- Discover Expo
+- Discover Native components
+- UX / UI
+
+## How to use ⚙️
+
+### 🔗 Launch the development server & meeting on http://localhost:8080/
+
+### Project setup
 ```
 yarn install
 ```
@@ -15,10 +36,8 @@ yarn serve
 yarn build
 ```
 
-### Lints and fixes files
-```
-yarn lint
-```
+## Status 📈
+Project completed
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Context 🎓
+Project developed as a junior web developer
