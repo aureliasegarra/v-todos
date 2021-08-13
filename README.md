@@ -1,10 +1,10 @@
-#  :hourglass: Todo App
+#  :heavy_check_mark: Todo App
 
 ## 👉 Create a Todo application with Vue.js 
 
 ## Illustration 📸
 
-[illustration](screenshot.png)
+![illustration](screenshot.png)
 
 ## Language/tools 🛠
 - HTML5 / CSS3
